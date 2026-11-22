@@ -1,3 +1,17 @@
+// mend — a patch CLI implementing SPEC.md.
+//
+// Formats: unified diff (section 6), SEARCH/REPLACE blocks (section 7), V4A
+// patches (section 8), and JSON edits (section 9). The format is detected
+// automatically or forced with --format.
+//
+// Edits match file lines at three tiers (section 5): exact, trailing-whitespace
+// insensitive, and whitespace-insensitive with re-indentation. Writes are
+// atomic and all-or-nothing: either every edit applies or the tree is restored.
+// Moves are reported as `R old -> new` output lines.
+//
+// Node 22, standard library only. The last lines hand over to runner.ts when
+// MAKEFUN_ENV_URL is set; run it as `node main.ts [options] [PATCH]`.
+
 import { mkdirSync, readFileSync, rmSync, statSync, writeFileSync, writeSync } from 'node:fs';
 import { dirname } from 'node:path';
 
