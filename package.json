@@ -1,0 +1,8 @@
+{
+  "name": "mend",
+  "version": "1.0.0",
+  "description": "mend: one patch tool for every AI edit format",
+  "license": "MIT",
+  "type": "module",
+  "engines": { "node": ">=22" }
+}
